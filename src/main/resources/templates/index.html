@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Welcome</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+<body>
+	<h1>Word Search</h1>
+	<form th:action="@{/processWords}" th:object="${wordSource}"
+		method="POST">
+		Enter Row Size: <input type="text" th:field="*{rowSize}" />
+		Enter Col Size: <input type="text" th:field="*{colSize}" />
+		<br>
+		<br /> Input Block:
+		<textarea th:field="*{word}"></textarea>
+		<br>
+		<br>
+		<br /> <input type="submit" value="FindWords" />
+	</form>
+	<br>
+	<p th:text="${message}"></p>
+	<br>
+	<br>
+	<p th:text="${words}"></p>
+
+</body>
+
+</html>
